@@ -26,17 +26,41 @@ function DigitalClock() {
 
   return (
     <div className="flex justify-center items-center h-screen bg-gray-200">
-      <div className="flex flex-col justify-center items-center bg-gray-200 p-10 rounded-3xl shadow-2xl">
-        <h1>Digital Clock</h1>
-        <p>Display current time in hours, minutes and seconds</p>
-        <h2>
+      <div className="flex flex-col gap-y-5 p-5 justify-center items-center bg-gray-200 rounded-3xl shadow-2xl w-auto h-auto">
+        <h1 className="font-extrabold text-4xl">Digital Clock</h1>
+        <p className="font-extralight text-2xl mb-5">
+          Display current time in hours, minutes and seconds
+        </p>
+        <h1 className="font-extrabold text-8xl">
           {hours}:{minutes}:{seconds} {ampm}
-        </h2>
-        <h2>
+        </h1>
+        <h1 className="font-extralight text-2xl mb-5">
           {day} {month},{year}
-        </h2>
-        <button onClick={() => toggleHourFormat(true)}>24-Hour Format</button>
-        <button onClick={() => toggleHourFormat(false)}>12-Hour Format</button>
+        </h1>
+        <div className="flex gap-x-5">
+          <div>
+            <button
+              disabled={hourFormat24}
+              className={`${
+                hourFormat24 ? "bg-gray-400" : "bg-gray-200"
+              } border px-4 py-2 rounded-[5px] font-bold disabled:pointer-events-none hover:bg-black hover:text-white transition duration-300 hover:cursor-pointer`}
+              onClick={() => toggleHourFormat(true)}
+            >
+              24-Hour Format
+            </button>
+          </div>
+          <div>
+            <button
+              disabled={!hourFormat24}
+              className={`${
+                !hourFormat24 ? "bg-gray-400" : "bg-gray-200"
+              } border px-4 py-2 rounded-[5px] font-bold disabled:pointer-events-none hover:bg-black hover:text-white transition duration-300 hover:cursor-pointer`}
+              onClick={() => toggleHourFormat(false)}
+            >
+              12-Hour Format
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );
