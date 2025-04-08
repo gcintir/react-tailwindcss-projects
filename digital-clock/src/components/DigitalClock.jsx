@@ -25,17 +25,19 @@ function DigitalClock() {
   const { day, month, year } = dateTimeUtil.getFormattedDate(time);
 
   return (
-    <div>
-      <h1>Digital Clock</h1>
-      <p>Display current time in hours, minutes and seconds</p>
-      <h2>
-        {hours}:{minutes}:{seconds} {ampm}
-      </h2>
-      <h2>
-        {day} {month},{year}
-      </h2>
-      <button onClick={() => toggleHourFormat(true)}>24-Hour Format</button>
-      <button onClick={() => toggleHourFormat(false)}>12-Hour Format</button>
+    <div className="flex justify-center items-center h-screen bg-gray-200">
+      <div className="flex flex-col justify-center items-center bg-gray-200 p-10 rounded-3xl shadow-2xl">
+        <h1>Digital Clock</h1>
+        <p>Display current time in hours, minutes and seconds</p>
+        <h2>
+          {hours}:{minutes}:{seconds} {ampm}
+        </h2>
+        <h2>
+          {day} {month},{year}
+        </h2>
+        <button onClick={() => toggleHourFormat(true)}>24-Hour Format</button>
+        <button onClick={() => toggleHourFormat(false)}>12-Hour Format</button>
+      </div>
     </div>
   );
 }
